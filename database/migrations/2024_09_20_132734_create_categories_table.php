@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome')->unique();
             $table->text('descricao');
             $table->timestamps();
-            $table->timestamps();
+        
         });
     }
 

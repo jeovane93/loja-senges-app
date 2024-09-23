@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('descricao');
             $table->double('preco',10,2);
             $table->string('slug');
-            $table->string('image')->nullable();
+            $table->string('imagem')->nullable();
             $table->timestamps();
             //Ligar esta tabela com a Categoria e Usuario
             $table->unsignedBigInteger('id_category');

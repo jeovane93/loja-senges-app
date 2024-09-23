@@ -20,11 +20,12 @@ class ProductsFactory extends Factory
      */
     public function definition(): array
     {
-        $nome = $this->faker->unique()->sentences();
+        $nome = $this->faker->unique()->sentence();
         return [
             //
             'nome' => $nome,
             'descricao' => $this->faker->paragraph(),
+            'preco' => $this->faker->randomNumber(2),
             'slug' => $this->faker->paragraph(),
             'descricao' => Str::slug($nome),
             'imagem' => $this->faker->imageUrl(400,400),
