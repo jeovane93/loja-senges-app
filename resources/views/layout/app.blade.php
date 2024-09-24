@@ -9,6 +9,8 @@
 <body>
     <!-- cabecalho -->
     <header>
+        <!-- Carregando o partial -->
+         @include('partials.navbar')
     </header>
     <!-- conteudo principal -->
     <main>
