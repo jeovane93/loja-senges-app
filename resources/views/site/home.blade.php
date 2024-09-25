@@ -31,4 +31,11 @@
 </div>
 @endforeach
 </div>
+<!-- pagination -->
+ <!-- {{ $produtos->links()}} -->
+   <!-- Componente de paginação -->
+    @include('partials.pagination', [
+    'items' => $produtos,
+    'route' => '/'
+    ])
 @endsection
