@@ -10,7 +10,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <!-- Colar dropdown -->
                 <li class="nav-item dropdown">
@@ -25,45 +25,46 @@
                 </li>
                 <li class="nav-item">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Contato</a>
+                    <a class="nav-link active" aria-current="page" href="/">Contato</a>
                 </li>
                 <li class="nav-item">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Carrinho</a>
+                    <a class="nav-link active" aria-current="page" href="/carrinho">Carrinho</a>
                 </li>
-                <!-- Se tiver Logado Mostre o perfil -->
-                <!-- Se tiver deslogado mostre o login -->
-                @auth
-                <ul id="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href=""
-                            class="nav-link dropdown-toggle"
-                            id='userDropdown'
-                            role='button'
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            {{ auth()->user()->name }}>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a href="#" class="dropdown-item">Perfil</a>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-item">Sair</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                @else
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="/"
-                            class="nav-link">
-                            Login
-                        </a>
-                    </li>
-                </ul>
-                @endif
+            </ul>
+            <!-- Se tiver Logado Mostre o perfil -->
+            <!-- Se tiver deslogado mostre o login -->
+            @auth
+            <ul id="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href=""
+                        class="nav-link dropdown-toggle"
+                        id='userDropdown'
+                        role='button'
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{ auth()->user()->name }}>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a href="#" class="dropdown-item">Perfil</a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-item">Sair</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            @else
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/"
+                        class="nav-link">
+                        Login
+                    </a>
+                </li>
+            </ul>
+            @endif
             </ul>
         </div>
     </div>
