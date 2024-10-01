@@ -30,7 +30,7 @@
             </strong>
         </p>
         <!-- Formulario de envio pro carrinho -->
-         <form action="#" method="POST" enctype="multipart/form-data">
+         <form action="/carrinho" method="POST" enctype="multipart/form-data">
             <!-- Adcionar o token -->
              @csrf
              <input type="hidden" name="id" value="{{$produto->id}}">
