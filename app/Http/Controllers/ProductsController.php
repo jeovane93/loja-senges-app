@@ -13,7 +13,13 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        //eu vou buscar informações do banco
+        //$produtos = Products::all();
+        //$produtos = Products::where('nome','nome')->first();;
+        //$produtos = Products::where('nome','nome')->get();;
+        //$produtos = Products::find($id);
+        $produtos =Products::paginate(25);
+        return view('admin.produtos.index', compact('produtos'));
     }
 
     /**
@@ -21,7 +27,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        //Aqui carrego a informação necessaria para criar um novo registro
+        //Carregar as categorias
+        return view('admin.produtos.create', compact('categorias'));
     }
 
     /**
@@ -29,7 +37,11 @@ class ProductsController extends Controller
      */
     public function store(StoreProductsRequest $request)
     {
-        //
+        //Salvar o registro atraves do modelo
+        Products::create($request->all());
+        //Redireciona ou gera um response
+        return redirect()->away('/produtos')
+        ->with('success', 'Produto criado com sucesso!')
     }
 
     /**
