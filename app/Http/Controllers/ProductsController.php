@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductsRequest;
 use App\Http\Requests\UpdateProductsRequest;
+use App\Models\Category;
 use App\Models\Products;
 
 class ProductsController extends Controller

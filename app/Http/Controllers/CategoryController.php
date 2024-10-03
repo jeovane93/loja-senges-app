@@ -24,7 +24,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('admin.produtos.create');
+        return view('admin.categorias.create');
     }
 
     /**
@@ -34,9 +34,9 @@ class CategoryController extends Controller
     {
         //
         Category::create($request->all());
-        return redirect()->away('/produtos')->with('success', 'Produto criado com sucesso!');
+        return redirect()->away('/produtos')->with('success', 'Categoria salva com sucesso!');
     }
-    /**
+    /**F
      * Display the specified resource.
      */
     public function show(Category $category)
@@ -53,7 +53,7 @@ class CategoryController extends Controller
     {
         //
         return view(
-            'admin.categorias.show',compact('category'));
+            'admin.categorias.edit',compact('category'));
     }
 
     /**
