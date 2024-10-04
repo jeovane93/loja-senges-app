@@ -8,11 +8,11 @@
                 <i class="bi bi-facebook"></i>
             </a>
             <!-- Instagram -->
-            <a href="https:\\www.instagram.com" class="text-white me-4" target="_blank" style="font-size:2rem">
+            <a href="https://www.instagram.com/faria_jeovane/" class="text-white me-4" target="_blank" style="font-size:2rem">
                 <i class="bi bi-instagram"></i>
             </a>
             <!-- WhatsApp -->
-            <a href="https:\\www.whatsApp.com" class="text-white me-4" target="_blank" style="font-size:2rem">
+            <a href="https://wa.me/43998125740?text=Bom%20Dia.%20No%20que%20podemos%20te%20ajudar%3F!" class="text-white me-4" target="_blank" style="font-size:2rem">
                 <i class="bi bi-whatsapp"></i>
             </a>
         </div>
