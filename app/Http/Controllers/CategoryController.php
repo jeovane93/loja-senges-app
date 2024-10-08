@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Products;
 
 class CategoryController extends Controller
 {
@@ -14,8 +15,11 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        //$categorias = Category::all();
+        //$categorias = Category::where('nome','Eletronicos')->get();
+        //$categorias = Category::where('nome','Eletronicos')->paginate(25);
         $categorias = Category::paginate(25);
-        return view('admin.categorias.index',compact('categorias'));
+        return view('admin.categorias.index', compact('categorias'));
     }
 
     /**
@@ -24,6 +28,8 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        //Eu vou carregar tudo que eu preciso para criar
+        //um novo registro
         return view('admin.categorias.create');
     }
 
@@ -39,43 +45,52 @@ class CategoryController extends Controller
     /**F
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($id)
     {
         //
+        $category = Category::find($id);
         return view(
-            'admin.categorias.show',compact('category'));
+            'admin.categorias.show',
+            compact('category')
+        );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
+        $category = Category::find($id);
         //
         return view(
-            'admin.categorias.edit',compact('category'));
+            'admin.categorias.edit',
+            compact('category')
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request,$id)
     {
         //
+        $category = Category::find($id);
         $category->update($request->all());
-        return redirect()->away('/categorias')->with('success','Categoria atualizada com sucesso!');
+        return redirect()->away('/admin/categorias')->with('success', 'Categoria atualizada com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         //
-        if($category->produtos()->count() >0){
-            return redirect()->away('/categorias')->with('error','Categoria possui dependentes!');
+        $category = Category::find($id);
+
+        if (!$category || $category->produtos()->count() > 0) {
+            return redirect()->away('/categorias')->with('error', 'Categoria possui dependentes!');
         }
         $category->delete();
-        return redirect()->away('/categorias')->with('success','Categoria removida com sucesso!');
+        return redirect()->away('/categorias')->with('success', 'Categoria removida com sucesso!');
     }
 }

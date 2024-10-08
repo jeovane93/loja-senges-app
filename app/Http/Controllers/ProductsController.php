@@ -48,7 +48,7 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Products $products)
+    public function show($id)
     {
         //
         return view('admin.produtos.show', compact('products'));
@@ -57,7 +57,7 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Products $products)
+    public function edit($id)
     {
         //
         $categorias = Category::all();
@@ -67,9 +67,10 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductsRequest $request, Products $products)
+    public function update(UpdateProductsRequest $request,$id)
     {
         //
+        $products = Products::find($id);
         $products->update($request->all());
         return redirect()->away('/produtos')->with('success', 'Produto atualizado com sucesso!');
     }
@@ -77,9 +78,10 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $products)
+    public function destroy($id)
     {
         //
+        $products = Products::find($id);
         $products->delete();
         return redirect()->away('/produtos')->with('success', 'Produto removido com sucesso!');
     }
