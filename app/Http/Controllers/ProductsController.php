@@ -30,6 +30,7 @@ class ProductsController extends Controller
     {
         //Aqui carrego a informação necessaria para criar um novo registro
         //Carregar as categorias
+        $categorias = Category::all();
         return view('admin.produtos.create', compact('categorias'));
     }
 
@@ -60,8 +61,9 @@ class ProductsController extends Controller
     public function edit($id)
     {
         //
+        $product = Products::find($id);
         $categorias = Category::all();
-        return view('admin.produtos.edit', compact('products', 'categorias'));
+        return view('admin.produtos.edit', compact('product', 'categorias'));
     }
 
     /**

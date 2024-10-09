@@ -27,8 +27,10 @@
                     </a>
                 </td>
                 <!-- edit -->
+                <!-- href="/admin/categorias/{{$categoria}}/edit" -->
+
                 <td>
-                    <a href="/admin/categorias/{{$categoria->id}}/edit"
+                    <a href="/admin/categorias/{{$categoria}}/edit"
                         class="btn btn-success">
                         <i class="bi bi-pencil"></i>
                     </a>

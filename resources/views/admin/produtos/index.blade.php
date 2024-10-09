@@ -20,7 +20,7 @@
             @foreach($produtos as $produto)
             <tr>
                 <td>{{$produto->nome}}</td>
-                <td></td>
+                <td>   R$ {{ number_format($produto->price, 2,',','.')}}</td>
                 <!-- show -->
                 <td>
                     <a href="/admin/produtos/{{$produto->id}}"
