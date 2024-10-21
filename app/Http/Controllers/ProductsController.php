@@ -42,7 +42,7 @@ class ProductsController extends Controller
         //Salvar o registro atraves do modelo
         Products::create($request->all());
         //Redireciona ou gera um response
-        return redirect()->away('/produtos')
+        return redirect()->away('/admin/produtos')
             ->with('success', 'Produto criado com sucesso!');
     }
 
@@ -74,7 +74,7 @@ class ProductsController extends Controller
         //
         $products = Products::find($id);
         $products->update($request->all());
-        return redirect()->away('/produtos')->with('success', 'Produto atualizado com sucesso!');
+        return redirect()->away('/admin/produtos')->with('success', 'Produto atualizado com sucesso!');
     }
 
     /**
@@ -85,6 +85,6 @@ class ProductsController extends Controller
         //
         $products = Products::find($id);
         $products->delete();
-        return redirect()->away('/produtos')->with('success', 'Produto removido com sucesso!');
+        return redirect()->away('/admin/produtos')->with('success', 'Produto removido com sucesso!');
     }
 }

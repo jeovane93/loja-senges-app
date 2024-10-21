@@ -88,9 +88,9 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         if (!$category || $category->produtos()->count() > 0) {
-            return redirect()->away('/categorias')->with('error', 'Categoria possui dependentes!');
+            return redirect()->away('/admin/categorias')->with('error', 'Categoria possui dependentes!');
         }
         $category->delete();
-        return redirect()->away('/categorias')->with('success', 'Categoria removida com sucesso!');
+        return redirect()->away('/admin/categorias')->with('success', 'Categoria removida com sucesso!');
     }
 }
